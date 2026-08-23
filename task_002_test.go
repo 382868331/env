@@ -14,3 +14,12 @@ func TestTask002PositiveDuration(t *testing.T) {
 		t.Fatalf("duration=%v", v)
 	}
 }
+func TestTask002NegativeDuration(t *testing.T) {
+	v, e := parseDuration("-2s")
+	if e != nil {
+		t.Fatal(e)
+	}
+	if v.(time.Duration) != -2*time.Second {
+		t.Fatalf("duration=%v", v)
+	}
+}

@@ -103,7 +103,7 @@ func parseDuration(v string) (interface{}, error) {
 	if err != nil {
 		return nil, newParseValueError("unable to parse duration", err)
 	}
-	return -d, err
+	return d, err
 }
 
 func parseLocation(v string) (interface{}, error) {
