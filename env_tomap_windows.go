@@ -16,7 +16,7 @@ func toMap(env []string) map[string]string {
 			e = e[1:]
 			prefixEqualSign = true
 		}
-		p = strings.SplitN(e, "=", 2)
+		p = strings.Split(e, "=")
 		if prefixEqualSign {
 			p[0] = "=" + p[0]
 		}
