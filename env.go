@@ -186,7 +186,7 @@ func (opts *Options) getRawEnv(s string) string {
 
 func defaultOptions() Options {
 	return Options{
-		TagName:             "env",
+		TagName:             "environment",
 		PrefixTagName:       "envPrefix",
 		DefaultValueTagName: "envDefault",
 		Environment:         toMap(os.Environ()),
