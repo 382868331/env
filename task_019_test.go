@@ -18,3 +18,16 @@ func TestTask019UnsetAfterRead(t *testing.T) {
 		t.Fatal("variable still present")
 	}
 }
+func TestTask019NoUnsetKeepsVariable(t *testing.T) {
+	const k = "TASK019_KEEP"
+	t.Setenv(k, "value")
+	var v struct {
+		Value string `env:"TASK019_KEEP"`
+	}
+	if e := Parse(&v); e != nil {
+		t.Fatal(e)
+	}
+	if _, ok := os.LookupEnv(k); !ok {
+		t.Fatal("variable removed")
+	}
+}
