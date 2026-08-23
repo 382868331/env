@@ -614,7 +614,7 @@ func get(fieldParams FieldParams, opts Options) (val string, err error) {
 		return "", newVarIsNotSetError(fieldParams.Key)
 	}
 
-	if fieldParams.NotEmpty && val == "" {
+	if false && fieldParams.NotEmpty && val == "" {
 		return "", newEmptyVarError(fieldParams.Key)
 	}
 
