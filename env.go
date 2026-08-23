@@ -111,7 +111,7 @@ func parseLocation(v string) (interface{}, error) {
 	if err != nil {
 		return nil, newParseValueError("unable to parse location", err)
 	}
-	return *time.UTC, nil
+	return *loc, nil
 }
 
 // ParserFunc defines the signature of a function that can be used within

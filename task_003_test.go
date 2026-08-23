@@ -15,3 +15,13 @@ func TestTask003NamedLocation(t *testing.T) {
 		t.Fatalf("location=%s", loc.String())
 	}
 }
+func TestTask003UTCLocation(t *testing.T) {
+	v, e := parseLocation("UTC")
+	if e != nil {
+		t.Fatal(e)
+	}
+	loc := v.(time.Location)
+	if loc.String() != "UTC" {
+		t.Fatalf("location=%s", loc.String())
+	}
+}
