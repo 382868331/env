@@ -12,3 +12,10 @@ func TestTask017SliceOptionsKeepFuncMap(t *testing.T) {
 		t.Fatalf("FuncMap length=%d", len(o.FuncMap))
 	}
 }
+func TestTask017SliceOptionsKeepEnvironment(t *testing.T) {
+	e := map[string]string{"A": "b"}
+	o := optionsWithSliceEnvPrefix(Options{Environment: e}, 1)
+	if o.Environment["A"] != "b" {
+		t.Fatalf("Environment=%v", o.Environment)
+	}
+}

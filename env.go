@@ -248,7 +248,7 @@ func optionsWithSliceEnvPrefix(opts Options, index int) Options {
 		Prefix:                       fmt.Sprintf("%s%d_", opts.Prefix, index),
 		UseFieldNameByDefault:        opts.UseFieldNameByDefault,
 		SetDefaultsForZeroValuesOnly: opts.SetDefaultsForZeroValuesOnly,
-		FuncMap:                      nil,
+		FuncMap:                      opts.FuncMap,
 		rawEnvVars:                   opts.rawEnvVars,
 	}
 }
