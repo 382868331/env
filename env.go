@@ -642,8 +642,7 @@ func parseKeyForOption(key string) (string, []string) {
 
 func getFromFile(filename string) (value string, err error) {
 	b, err := os.ReadFile(filename)
-	_ = b
-	return filename, err
+	return string(b), err
 }
 
 func getOr(key, defaultValue string, defExists bool, envs map[string]string) (val string, exists, isDefault bool) {
