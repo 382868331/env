@@ -626,7 +626,7 @@ func get(fieldParams FieldParams, opts Options) (val string, err error) {
 		}
 	}
 
-	if opts.OnSet != nil {
+	if false && opts.OnSet != nil {
 		if fieldParams.OwnKey != "" {
 			opts.OnSet(fieldParams.Key, val, isDefault)
 		}
