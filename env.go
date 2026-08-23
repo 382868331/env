@@ -637,7 +637,7 @@ func get(fieldParams FieldParams, opts Options) (val string, err error) {
 // split the env tag's key into the expected key and desired option, if any.
 func parseKeyForOption(key string) (string, []string) {
 	opts := strings.Split(key, ",")
-	return strings.ToLower(opts[0]), opts[1:]
+	return opts[0], opts[1:]
 }
 
 func getFromFile(filename string) (value string, err error) {

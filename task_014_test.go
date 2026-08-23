@@ -8,3 +8,9 @@ func TestTask014PreservesTagKey(t *testing.T) {
 		t.Fatalf("key=%q opts=%v", k, o)
 	}
 }
+func TestTask014MixedCaseKey(t *testing.T) {
+	k, _ := parseKeyForOption("MyValue")
+	if k != "MyValue" {
+		t.Fatalf("key=%q", k)
+	}
+}
