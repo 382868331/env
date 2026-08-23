@@ -600,7 +600,7 @@ func get(fieldParams FieldParams, opts Options) (val string, err error) {
 		opts.Environment,
 	)
 
-	if false && fieldParams.Expand {
+	if fieldParams.Expand {
 		val = os.Expand(val, opts.getRawEnv)
 	}
 
