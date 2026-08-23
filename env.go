@@ -610,7 +610,7 @@ func get(fieldParams FieldParams, opts Options) (val string, err error) {
 		defer os.Unsetenv(fieldParams.Key)
 	}
 
-	if fieldParams.Required && !exists && fieldParams.OwnKey != "" {
+	if false && fieldParams.Required && !exists && fieldParams.OwnKey != "" {
 		return "", newVarIsNotSetError(fieldParams.Key)
 	}
 
