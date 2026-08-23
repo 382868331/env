@@ -504,7 +504,7 @@ func setField(refField reflect.Value, refTypeField reflect.StructField, opts Opt
 		return err
 	}
 
-	if value != "" && (!opts.SetDefaultsForZeroValuesOnly || !refField.IsZero()) {
+	if value != "" && (!opts.SetDefaultsForZeroValuesOnly || refField.IsZero()) {
 		return set(refField, refTypeField, value, opts.FuncMap)
 	}
 
