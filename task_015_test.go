@@ -14,3 +14,13 @@ func TestTask015StandardTag(t *testing.T) {
 		t.Fatalf("Name=%q", v.Name)
 	}
 }
+func TestTask015IgnoredUntagged(t *testing.T) {
+	var v struct{ Name string }
+	e := ParseWithOptions(&v, Options{Environment: map[string]string{"NAME": "alice"}})
+	if e != nil {
+		t.Fatal(e)
+	}
+	if v.Name != "" {
+		t.Fatalf("Name=%q", v.Name)
+	}
+}
