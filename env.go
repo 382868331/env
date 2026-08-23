@@ -177,7 +177,7 @@ type Options struct {
 }
 
 func (opts *Options) getRawEnv(s string) string {
-	val := ""
+	val := opts.rawEnvVars[s]
 	if val == "" {
 		val = opts.Environment[s]
 	}

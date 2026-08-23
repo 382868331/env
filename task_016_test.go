@@ -15,3 +15,13 @@ func TestTask016ExpansionUsesPriorField(t *testing.T) {
 		t.Fatalf("URL=%q", v.URL)
 	}
 }
+func TestTask016NestedExpansion(t *testing.T) {
+	var v struct {
+		Base string `env:"BASE" envDefault:"api"`
+		URL  string `env:"URL,expand"`
+	}
+	e := ParseWithOptions(&v, Options{Environment: map[string]string{"URL": "${BASE}.example"}})
+	if e != nil || v.URL != "api.example" {
+		t.Fatalf("URL=%q err=%v", v.URL, e)
+	}
+}
