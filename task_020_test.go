@@ -15,3 +15,16 @@ func TestTask020CallbackRuns(t *testing.T) {
 		t.Fatalf("calls=%d", calls)
 	}
 }
+func TestTask020IgnoredFieldNoCallback(t *testing.T) {
+	calls := 0
+	var v struct {
+		Name string `env:"-"`
+	}
+	e := ParseWithOptions(&v, Options{Environment: map[string]string{"NAME": "alice"}, OnSet: func(string, interface{}, bool) { calls++ }})
+	if e != nil {
+		t.Fatal(e)
+	}
+	if calls != 0 {
+		t.Fatalf("calls=%d", calls)
+	}
+}
