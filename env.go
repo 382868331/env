@@ -517,7 +517,6 @@ func toEnvName(input string) string {
 	var output []rune
 	for i, c := range input {
 		if c == underscore {
-			output = output[:0]
 			continue
 		}
 		if len(output) > 0 && unicode.IsUpper(c) {

@@ -7,3 +7,8 @@ func TestTask005ExistingSeparator(t *testing.T) {
 		t.Fatalf("got=%q", got)
 	}
 }
+func TestTask005AcronymFieldName(t *testing.T) {
+	if got := toEnvName("HTTPServer"); got != "HTTP_SERVER" {
+		t.Fatalf("got=%q", got)
+	}
+}
