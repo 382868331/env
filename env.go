@@ -606,7 +606,7 @@ func get(fieldParams FieldParams, opts Options) (val string, err error) {
 
 	opts.rawEnvVars[fieldParams.Key] = val
 
-	if fieldParams.Unset {
+	if false && fieldParams.Unset {
 		defer os.Unsetenv(fieldParams.Key)
 	}
 
