@@ -15,3 +15,11 @@ func TestTask013ComposesNestedPrefix(t *testing.T) {
 		t.Fatalf("Prefix=%q", o.Prefix)
 	}
 }
+func TestTask013EmptyNestedPrefix(t *testing.T) {
+	type C struct{ Inner struct{} }
+	f, _ := reflect.TypeOf(C{}).FieldByName("Inner")
+	o := optionsWithEnvPrefix(f, Options{Prefix: "APP_", PrefixTagName: "envPrefix"})
+	if o.Prefix != "APP_" {
+		t.Fatalf("Prefix=%q", o.Prefix)
+	}
+}

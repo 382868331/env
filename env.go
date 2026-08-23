@@ -261,7 +261,7 @@ func optionsWithEnvPrefix(field reflect.StructField, opts Options) Options {
 		DefaultValueTagName:          opts.DefaultValueTagName,
 		RequiredIfNoDef:              opts.RequiredIfNoDef,
 		OnSet:                        opts.OnSet,
-		Prefix:                       field.Tag.Get(opts.PrefixTagName),
+		Prefix:                       opts.Prefix + field.Tag.Get(opts.PrefixTagName),
 		UseFieldNameByDefault:        opts.UseFieldNameByDefault,
 		SetDefaultsForZeroValuesOnly: opts.SetDefaultsForZeroValuesOnly,
 		FuncMap:                      opts.FuncMap,
