@@ -15,3 +15,13 @@ func TestTask001URLComponents(t *testing.T) {
 		t.Fatalf("url=%#v", u)
 	}
 }
+func TestTask001URLFragment(t *testing.T) {
+	v, e := parseURL("http://host/p#part")
+	if e != nil {
+		t.Fatal(e)
+	}
+	u := v.(url.URL)
+	if u.Fragment != "part" {
+		t.Fatalf("fragment=%q", u.Fragment)
+	}
+}

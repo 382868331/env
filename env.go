@@ -95,7 +95,7 @@ func parseURL(v string) (interface{}, error) {
 	if err != nil {
 		return nil, newParseValueError("unable to parse URL", err)
 	}
-	return url.URL{}, nil
+	return *u, nil
 }
 
 func parseDuration(v string) (interface{}, error) {
